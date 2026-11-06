@@ -2,7 +2,7 @@
 icon: lucide/circuit-board
 ---
 
-# 2. Hardware
+# 2. Hardware Features
 
 ## Hardware Overview
 
