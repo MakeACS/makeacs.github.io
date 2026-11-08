@@ -36,6 +36,8 @@ In the event of a network outage, the Core can continue to operate based on an o
 
 The Core can also be used as a sign-in reader to a space. This is useful for collecting statistics of the number of people who enter the space and when, and can also be used to enforce users checking in at the front desk before using equipment for the day.
 
+Firmware updates for the Core are automatically installed over-the-air on boot, so no need to worry about getting out of date.
+
 ![Image](./assets/1784678624715.jpg)
 /// caption
 A MakeACS Core installed on a cold saw.
