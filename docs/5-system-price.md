@@ -11,7 +11,7 @@ One of the main development goals of MakeACS was to create a system that did not
 
 ## Hardware Cost
 
-The Access Control Hardware is the most expensive part of a MakeACS deployment, an average setup comes out to around $300 per machine.
+The Access Control Hardware is the most expensive part of a MakeACS deployment, an average setup comes out to around $200 per machine.
 
 Let's look at an example; what would it take to put MakeACS on all five sewing machines in our textiles shop?
 
@@ -68,6 +68,8 @@ Adding up the above, the total cost to deploy MakeACS hardware on 5 machines is 
 
 The best part? It gets cheaper the more you buy, with bulk discounts especially present on the electronics. If we opted for 30 sets of hardware instead, it drops the price to under **$130 per machine**!
 
+Adding additional features is also cheap and easy. For instance, adding a display to the Core is only $30 per unit more.
+
 ## Server Cost
 
 What good is the hardware being cheap if it costs a ton to keep the server running? The MakeACS server is designed to be extremely resource-conscious, requiring very little to run. We wouldn't recommend it, but you can easily run it off of a Raspberry Pi tucked away in the corner of the shop!
@@ -78,6 +80,7 @@ In most cases, hosting through a vendor like Heroku is the best option. Below is
 * Datastore (Heroku Postgresql Essential 2), $20 per month: Handles database storage of all information. This plan allows full data logging for **50 years** before database size constraints kick in.
 
 Some additional costs come into play if your scale gets very large;
+
 * AWS Cloudfront CDN: Handles storing and serving images, documents, videos, etc. embedded into the website. Kept separate from Heroku to save costs. $0 per month unless you are exceeding around 10,000 website sessions per month.
 * Mailgun: The part of Heroku that handles sending emails. Free for up to 400 emails per day, 401-50,000 emails per day costs up to $19 per month. Emails can be batched and sent out over time to keep under the 400 email limit.
 * Grafana Hosting: If you want to use Grafana for visualizations, but do not want to have to host it yourself, you can integrate it into Heroku via Stackero for up to $19 per month.

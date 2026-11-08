@@ -666,7 +666,7 @@
 <p>All prices listed are for the price of materials and BOM items, and assumes you are doing any assembly/installation yourself.</p>
 </div>
 <h2 id="hardware-cost">Hardware Cost<a class="headerlink" href="#hardware-cost" title="Permanent link">&para;</a></h2>
-<p>The Access Control Hardware is the most expensive part of a MakeACS deployment, an average setup comes out to around $300 per machine.</p>
+<p>The Access Control Hardware is the most expensive part of a MakeACS deployment, an average setup comes out to around $200 per machine.</p>
 <p>Let's look at an example; what would it take to put MakeACS on all five sewing machines in our textiles shop?</p>
 <h3 id="circuitry">Circuitry<a class="headerlink" href="#circuitry" title="Permanent link">&para;</a></h3>
 <p>All electrical circuitry in MakeACS is designed to be easy to order, with BOM and Gerber files being optimized for use by JLCPCB and similar assembly houses. Further savings can be realized by doing partial or full assembly yourself. </p>
@@ -705,6 +705,7 @@
 <h3 id="total">Total<a class="headerlink" href="#total" title="Permanent link">&para;</a></h3>
 <p>Adding up the above, the total cost to deploy MakeACS hardware on 5 machines is only <strong>$203 per machine</strong></p>
 <p>The best part? It gets cheaper the more you buy, with bulk discounts especially present on the electronics. If we opted for 30 sets of hardware instead, it drops the price to under <strong>$130 per machine</strong>!</p>
+<p>Adding additional features is also cheap and easy. For instance, adding a display to the Core is only $30 per unit more.</p>
 <h2 id="server-cost">Server Cost<a class="headerlink" href="#server-cost" title="Permanent link">&para;</a></h2>
 <p>What good is the hardware being cheap if it costs a ton to keep the server running? The MakeACS server is designed to be extremely resource-conscious, requiring very little to run. We wouldn't recommend it, but you can easily run it off of a Raspberry Pi tucked away in the corner of the shop!</p>
 <p>In most cases, hosting through a vendor like Heroku is the best option. Below is the configuration used by RIT, supporting over 8000 users across 7 makerspaces;</p>
@@ -712,10 +713,12 @@
 <li>Dyno (Heroku Cedar Basic): $7 per month: THe "computer" part of the server, that handles actually running the website.</li>
 <li>Datastore (Heroku Postgresql Essential 2), $20 per month: Handles database storage of all information. This plan allows full data logging for <strong>50 years</strong> before database size constraints kick in.</li>
 </ul>
-<p>Some additional costs come into play if your scale gets very large;
-* AWS Cloudfront CDN: Handles storing and serving images, documents, videos, etc. embedded into the website. Kept separate from Heroku to save costs. $0 per month unless you are exceeding around 10,000 website sessions per month.
-* Mailgun: The part of Heroku that handles sending emails. Free for up to 400 emails per day, 401-50,000 emails per day costs up to $19 per month. Emails can be batched and sent out over time to keep under the 400 email limit.
-* Grafana Hosting: If you want to use Grafana for visualizations, but do not want to have to host it yourself, you can integrate it into Heroku via Stackero for up to $19 per month.</p>
+<p>Some additional costs come into play if your scale gets very large;</p>
+<ul>
+<li>AWS Cloudfront CDN: Handles storing and serving images, documents, videos, etc. embedded into the website. Kept separate from Heroku to save costs. $0 per month unless you are exceeding around 10,000 website sessions per month.</li>
+<li>Mailgun: The part of Heroku that handles sending emails. Free for up to 400 emails per day, 401-50,000 emails per day costs up to $19 per month. Emails can be batched and sent out over time to keep under the 400 email limit.</li>
+<li>Grafana Hosting: If you want to use Grafana for visualizations, but do not want to have to host it yourself, you can integrate it into Heroku via Stackero for up to $19 per month.</li>
+</ul>
 <p>So for most applications, the cost ends up <strong>below $30 per month</strong>!</p>
 <p>Keep in mind: MakeACS is open-source. If your facility or institution already have server hosting capacity, you may be able to run MakeACS off of that for $0 per month!  </p>
 
