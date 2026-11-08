@@ -13,7 +13,7 @@ One of the main development goals of MakeACS was to create a system that did not
 
 The Access Control Hardware is the most expensive part of a MakeACS deployment, an average setup comes out to around $200 per machine.
 
-Let's look at an example; what would it take to put MakeACS on all five sewing machines in our textiles shop?
+Let's look at an example; what would it take to put MakeACS on all five sewing machines in our textiles shop? Sewing machines plug directly into the wall, so simply putting an AC Power Switch inline is sufficient. Each machine will also need a Core, so we can read the ID of the user sewing.
 
 ### Circuitry
 
@@ -29,7 +29,7 @@ If we assume worst-case and have boards 100% assembled and shipped to us;
 
 ### Wiring
 
-MakeACS uses standard HD15 cables to interconnect components. The suggested cable is one made by Amphenol Cables on Demand, but any quality brand should work. In our case, we'll opt for 5-foot cables, so we can mount the AC Power Switch somewhere more convenient.
+MakeACS uses standard HD15 cables to interconnect components. The suggested cable is one made by Amphenol Cables on Demand, but any quality brand should work. In our case, we'll opt for 5-foot cables, so we can mount the AC Power Switch out of the way, while still having the card reader easily accessed by the user.
 
 * 5x Amphenol Cables on Demand HD15 5' (CS-DSDHD15MM0-005): $80.30
 * Digikey Shipping & Tariffs: $64.08
@@ -52,7 +52,7 @@ All 3D printed components for 5 AC Power Switches and 5 NFC Cores cost less than
 
 MakeACS standardizes around very common metric M3 and M4 hardware, that can be bought in inexpensive bulk packs from Amazon, McMaster-Carr, or your local hardware store. This brings the hardware cost to only **$10** for our example.
 
-The one somewhat specialized hardware component needed would be the DIN rail mounting plate the NFC Core uses to attach itself to its base, a DRB48-1. A 5-pack of these is only **$15** on Amazon, though.
+The one somewhat specialized mechanical component needed would be the DIN rail mounting plate the NFC Core uses to attach itself to its base, a DRB48-1. A 5-pack of these is only **$15** on Amazon, though.
 
 ### Miscellaneous
 
@@ -68,7 +68,7 @@ Adding up the above, the total cost to deploy MakeACS hardware on 5 machines is 
 
 The best part? It gets cheaper the more you buy, with bulk discounts especially present on the electronics. If we opted for 30 sets of hardware instead, it drops the price to under **$130 per machine**!
 
-Adding additional features is also cheap and easy. For instance, adding a display to the Core is only $30 per unit more.
+Adding additional features is also cheap and easy. For instance, adding a display to the Core is only $30 per unit more. Such upgrades can also come down the road thanks to the modular nature of the MakeACS hardware, so there's no need to make the decision right away.
 
 ## Server Cost
 
@@ -78,11 +78,12 @@ In most cases, hosting through a vendor like Heroku is the best option. Below is
 
 * Dyno (Heroku Cedar Basic): $7 per month: THe "computer" part of the server, that handles actually running the website.
 * Datastore (Heroku Postgresql Essential 2), $20 per month: Handles database storage of all information. This plan allows full data logging for **50 years** before database size constraints kick in.
+    * For smaller facilities, or if you can delete dater after ~5 years, you can get away with plans as little as $5 per month!
 
 Some additional costs come into play if your scale gets very large;
 
-* AWS Cloudfront CDN: Handles storing and serving images, documents, videos, etc. embedded into the website. Kept separate from Heroku to save costs. $0 per month unless you are exceeding around 10,000 website sessions per month.
-* Mailgun: The part of Heroku that handles sending emails. Free for up to 400 emails per day, 401-50,000 emails per day costs up to $19 per month. Emails can be batched and sent out over time to keep under the 400 email limit.
+* AWS Cloudfront CDN: Handles storing and serving images, documents, videos, etc. embedded into the website. Kept separate from Heroku to save costs. $0 per month unless you are exceeding around 10,000 website sessions per month. Beyond that, it costs around $1 per 100,000 monthly visits to the website.
+* Mailgun: The part of Heroku that handles sending emails. Free for up to 400 emails per day, 401-50,000 emails per day costs up to $19 per month. Emails can be batched and sent out over time to keep under the 400 email limit, to avoid paying for the mail services.
 * Grafana Hosting: If you want to use Grafana for visualizations, but do not want to have to host it yourself, you can integrate it into Heroku via Stackero for up to $19 per month.
 
 So for most applications, the cost ends up **below $30 per month**!

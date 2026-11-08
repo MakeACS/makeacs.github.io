@@ -8,7 +8,11 @@ icon: lucide/circuit-board
 
 The MakeACS hardware is what enables the system to control machine-level access, track usage of the shops, and automatically generate maintenance tasks based on usage. 
 
-MakeACS hardware is a modular, shared-bus system; multiple individual components can be interconnected to tailor the hardware to the application at hand. Each component is self-contained and in most cases does not require any specialized training or skills to integrate with the equipment. 
+MakeACS hardware is a modular, shared-bus system; multiple individual components can be interconnected to tailor the hardware to the application at hand. By combining different card readers, switches, and accessories, thousands of possible setups can be achieved to perfectly tailor to the application at hand.
+
+Components are connected with a simple HD15 cable, no need for any specialized tooling or proprietary connectors. All components in a MakeACS deployment are also constantly monitored and inventoried, so that a malicious actor cannot swap components around to gain access to equipment they otherwise should not be able to.
+
+When installing, each component is self-contained and in most cases does not require any specialized training or skills to integrate with the equipment. Any configuration that is needed can be done through a graphical user interface on any Windows computer.
 
 The MakeACS bus is standardized and easy to integrate into your own device, so you can easily make your own components to suit any need that the already-existing hardware does not. 
 
@@ -16,12 +20,13 @@ The MakeACS bus is standardized and easy to integrate into your own device, so y
 
 The Core is the heart of a MakeACS deployment. It is where the end-user interacts with the system, and is how the deployment communicates with the server. 
 
-All Cores are equipped with both a 2.4GHz Wi-Fi radio, and a 100Mbps Ethernet connection, to communicate with the server. 
+All Cores are equipped with both a 2.4GHz Wi-Fi radio, and a 100Mbps Ethernet connection, to communicate with the server. There is no need for a separate network or anything; the Core can connect directly to your main Ethernet or WiFi network, and is fully encrypted. 
 
 User identification in MakeACS is designed to use already-issued ID cards, such as student IDs or membership cards. Supported cards include:
 
 * **NFC** (13.56MHz), ISO/IEC 14443A, MIFARE (Classic, Ultralight, Ultralight C, Plus, DESFire), NTAG
     * Can identify by ISO UID or by decrypting secure application data (such as a student ID number)
+    * Hardware supports smartphone- or smartwatch-based NFC identification as well.
 * **RFID** (125KHz), FSK (HID and HID-compatible, up to 39 bytes), ASK (EM Microelectronic and compatible)
     * Can be configured to use unique card number or facility code + card number for user identification
 
