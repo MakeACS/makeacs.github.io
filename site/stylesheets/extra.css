@@ -1,0 +1,8 @@
+/* Style documentation images with a colored border and rounded corners */
+article img {
+  border: 2px solid #F76902;
+  border-radius: 10px; 
+  padding: 2px;
+  background: #fff;
+  overflow: hidden; /* Keeps the image content clipped perfectly to the rounded corners */
+}

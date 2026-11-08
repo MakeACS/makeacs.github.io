@@ -10,6 +10,10 @@ The website is designed to require minimal resources to host, with hosting from 
 
 The website implements Shibboleth SAML Single Sign On, to easily integrate into existing systems. Local accounts are possible for institutions that do not have SSO, or for special non-SSO cases, like organization accounts.
 
+The website's appearance is fully customizable without any coding, and supports multiple appearance skins that users can select from (such as a dark or light mode, seasonal themes, etc.)
+
+![Image](./assets/make%20homepage.png)
+
 ## Public Information
 
 The website hosts a public-facing website for the shops, with useful information for the general public;
@@ -20,8 +24,19 @@ The website hosts a public-facing website for the shops, with useful information
 * General machine information.
 * Real-time equipment availability, to see if what you are looking to use is free.
 * A publicly-available REST API for getting the hours, announcements, etc. for integration into other systems and websites.
+* Upcoming events, pulled via API from systems like Eventbrite
 
-Additionally, the website generates and serves pages for the hours and announcements that can be constantly displayed on screens around the facility, that will automatically update as changes are made to the website, and handle anti-burn in image shifting.
+Additionally, the website generates and serves pages for the hours, announcements, and events that can be constantly displayed on screens around the facility, that will automatically update as changes are made to the website, and handle anti-burn in image shifting.
+
+![Image](./assets/make%20hours%20display.png)
+/// caption
+Check it out yourself; [make.rit.edu/app/display/hours/36](https://make.rit.edu/app/display/hours/36)
+///
+
+![Image](./assets/make%20displays.jpg)
+/// caption
+Upcoming Events, Hours, and Announcements Displays
+///
 
 ## Maker (User) Features
 
@@ -35,9 +50,23 @@ The system can also be configured to restrict a user account based on SSO inform
 
 Analytical data can also be collected via SSO and plotted against other data gathered about shop operation, such as correlating equipment usage trends to home college, or makerspace utilization vs. expected graduation year.
 
+![Image](./assets/make%20user%20info.png)
+/// caption
+User info, visible to staff, pulled from SSO
+///
+
 ### Trainings
 
 One of the main features used by makers on the website is the training system. Online trainings are a great way to reinforce general safety and usage concepts before users step foot in the shop. Trainings consist of multiple-choice questions supporting either single-answer or multiple-answer results. The training system also supports embedding images, PDFs, videos, and markdown-formatted text directly inside the training. 
+
+![Image](./assets/quiz%20content.png)
+/// caption
+An example of an embedded video training
+///
+
+When a user completes a training, they can be given customized affirmations and/or hints to either reinforce concepts, or give them a nudge towards the correct answer.
+
+![Image](./assets/training%20feedback.png)
 
 Shop administrators can set pass and refresh policies for trainings. For instance, RIT requires an 80% or higher to have considered "passing" a training, and makes any training related to safety expire annually, whereas technical trainings last forever. 
 
@@ -49,11 +78,30 @@ Training content can be associated with equipment, rooms, or the entire makerspa
 
 As a training approaches expiration, makers are automatically sent reminder emails, with a call to action on what trainings to complete to continue having access to which equipment(s).
 
+![Image](./assets/training%20expiration%20notice.png)
+///caption
+I'll lose access to the 3D printers if I don't re-do my training!
+///
+
 To help inform users about training requirements, every piece of equipment on the website has a checklist and a progress bar. The website also generates mobile-friendly training checklists, intended for use with a QR code on the machine.
+
+![Image](./assets/training%20checklist.jpg)
+///caption
+"Makerspace Requirements" apply to all equipment everywhere.
+///
 
 ### Reservations
 
 While the default behavior of equipment in MakeACS is first-come, first-serve, the system also implements a reservation calendar. Equipment can be configured to have a self-schedule calendar where anyone can put a reservation down, or staff-schedule, where users muse work with staff to schedule an appointment. Appointment scheduling can optionally be blocked behind the same training access checks that machine access would, so users cannot reserve equipment they cannot use.
+
+When a reservation is submitted, staff with authority to approve it can be notified by email or Slack message.
+
+![Image](./assets/make%20slackbot%20reservation.png)
+
+![Image](./assets/make%20reservation.png)
+///caption
+The self-serve reservation calendar
+///
 
 ## Staff Features
 
@@ -71,9 +119,22 @@ All activities in the facility is tracked in a centralized audit log/history. Lo
 
 The audit log embeds useful click-through links. For example, the audit log of "Jim Heaney has signed into the Atrium Makerspace" has a click-through to Jim Heaney's user account, so staff can quickly access information on them. 
 
+![Image](./assets/make%20history.png)
+
+Audit log content can also be fed into systems like Grafana to develop graphical data representations, identify trends, or have real-time heads-up information about the shop. For example, the visualization below allows tracking of sign-ins to a space per hour, to identify what times need additional staffing.
+
+![Image](./assets/users%20by%20hour.png)
+
 ### Maintenance Logs
 
 To aid in tracking equipment issues, a maintenance logging system is available to all staff. Staff can open reports with issues they find, and attach images to assist in future diagnostics. Which staff claim/close a ticket, how long the ticket took to close, and how often tickets of a set severity level are registered against a piece of equipment are all logged for statistical analysis. 
+
+When a maintenance ticket is generated, it can be used to trigger an automatic email or Slack message, to keep maintenance staff informed about ongoing issues.
+
+![Image](./assets/make%20slackbot%20maintenance.png)
+///caption 
+
+///
 
 In addition to reported issues, the MakeACS server can automatically generate tickets, based on 2 different criteria;
 
@@ -83,19 +144,32 @@ In addition to reported issues, the MakeACS server can automatically generate ti
 
 Maintenance logs that are marked with a high severity can be configured to automatically lock out equipment and deny all access attempts.
 
+![Image](./assets/make%20maintenance.png)
+///caption
+"SERVER" tickets are for scheduled/regular maintenance
+///
+
 ### Equipment State
 
 Staff have the ability to see the equipment's current state, and remotely change the equipment's state via the website. This allows them to lock equipment on during workshops or trainings, or lock it off when the equipment should not be used. Staff are only able to lock equipment on that they themselves are trained on, to prevent system bypasses. If staff forget to return equipment from the locked-on to regular mode, systems re-lock automatically at 4am every morning. Locked out equipment will maintain its state, even through a loss-of-power. 
 
 Staff can see the current equipment state, and either the current user or what staff commanded it into that state via the website. 
 
+![Image](./assets/machine%20states.png)
+
+
 ### Inventory Control
 
-The MakeACS server supports a full inventory management system, that either be accessed via API or via manual staff action. Staff can add or remove inventory via the normal MakeACS website, or via special mobile-optimized pages that are intended to be on QR codes directly attached to the inventory. 
+The MakeACS server supports a full inventory management system, which can be modified by staff actions via the website, or automatically via API. Staff can add or remove inventory via the normal MakeACS website, or via special mobile-optimized pages that are intended to be on QR codes directly attached to the inventory. 
 
 Managers can set categories, price points, and restock policies for all inventory. When inventory goes below a set threshold, the system can automatically send a Slack or email notification to trigger a re-order.
 
 Inventory items can have images or notes attached to them, to help staff identify them or to have re-order information on hand in one centralized location. 
+
+![Image](./assets/make%20slackbot%20inventory.png)
+///caption
+
+///
 
 ### Tool Loan Tracking
 
@@ -105,6 +179,10 @@ Upon loaning or returning equipment, staff can be presented with images and/or f
 
 The condition and current loan status of all equipment can be seen from a centralized interface, and is also available for statistical analysis via the audit log.
 
+![Image](./assets/make%20tool%20loan.png)
+
+For further analytics collection specifically surrounding the website, you can enter a custom Google Analytics ID to gain usage information, such as common pages, traffic sources, and bounce rates.
+
 ### User Restrictions
 
 In the event that staff find a user acting in an improper or dangerous way in the makerspace, they have the ability to place a restriction on their account. This will flag their account for review by a manager, and stop them from using any equipment in the makerspace until it is resolved.
@@ -112,6 +190,8 @@ In the event that staff find a user acting in an improper or dangerous way in th
 Managers have the ability to place a hold on a user's account, which stops them from using all equipment under MakeACS, notifies staff if they attempt to sign in to a makerspace, and locks down their view of the website. Even when removed, a permanent record of a hold is left on the user's account. 
 
 Staff and managers can also see and edit notes on a user's account, to help log information for other staff.
+
+![Image](./assets/make%20hold.png)
 
 ### Organizations & Finances
 

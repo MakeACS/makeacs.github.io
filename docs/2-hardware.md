@@ -18,11 +18,33 @@ The Core is the heart of a MakeACS deployment. It is where the end-user interact
 
 All Cores are equipped with both a 2.4GHz Wi-Fi radio, and a 100Mbps Ethernet connection, to communicate with the server. 
 
-There are multiple different styles of Core, depending on the intended application, and how your shop identifies users. In most applications, MakeACS uses your already-issued university ID card to identify the user, with hardware supporting NFC (13.56MHz, all generations up to DESFire EV3) and RFID (125KHz, FSK or ASK, up to 39 byte identifier length). Hardware supports either *tapping* the ID card to start an equipment session, which decays on a timer, or *inserting* the card, and the equipment stays online as long as the card is present.
+User identification in MakeACS is designed to use already-issued ID cards, such as student IDs or membership cards. Supported cards include:
+
+* **NFC** (13.56MHz), ISO/IEC 14443A, MIFARE (Classic, Ultralight, Ultralight C, Plus, DESFire), NTAG
+    * Can identify by ISO UID or by decrypting secure application data (such as a student ID number)
+* **RFID** (125KHz), FSK (HID and HID-compatible, up to 39 bytes), ASK (EM Microelectronic and compatible)
+    * Can be configured to use unique card number or facility code + card number for user identification
+
+MakeACS supports two forms of session duration as well;
+
+* Tap: Works like a traditional card reader, tapping the ID card will start a session of a pre-set length. Tapping again refreshes the countdown.
+* Insert: Requires the card to remain inserted into the MakeACS Core to continue a session duration indefinitely, ensuring constant operator presence.
 
 The Core has a basic RGB LED and buzzer for communicating state, but also has an open-ended connection interface to allow for a display module.
 
 In the event of a network outage, the Core can continue to operate based on an offline list of previously-approved users, for up to 30 days.
+
+The Core can also be used as a sign-in reader to a space. This is useful for collecting statistics of the number of people who enter the space and when, and can also be used to enforce users checking in at the front desk before using equipment for the day.
+
+![Image](./assets/1784678624715.jpg)
+/// caption
+A MakeACS Core installed on a cold saw.
+///
+
+![Image](./assets/paint%20booth%20core.jpg)
+///caption
+Tap you ID to activate the paint booth. The display will show you how long you have remaining in your session. 
+///
 
 ## The Switch
 
@@ -37,6 +59,11 @@ The AC Power Switch is by far the most popular MakeACS switch. It simply goes in
 The AC Power Switch is rated for highly inductive loads, and can handle a sustained 20A. This makes it ideal for anything from a sewing machine to a bandsaw.
 
 The switch will monitor for any faults such as over-temperature, or blown fuses, and can also be configured to not allow a machine to be activated if it is detected to be in the "on" state. 
+
+![Image](./assets/ac+core.jpg)
+/// caption
+An AC Power Switch and a Core are the most common deployment.
+///
 
 ### USB Hub Switch
 
@@ -95,3 +122,63 @@ This add-on enables MakeACS to open blast gates based on what equipment is in us
 ## Deployment Examples
 
 Below are some examples of how MakeACS is deployed at RIT.
+
+### AC Power Switch
+
+The AC Power Switch is by far the most common switch. RIT uses it on the following machines;
+
+* Bernina 475, 590, E16, L460, Q20
+* Weller soldering iron
+* Metcal soldering heat gun
+* Roland RS-24 Vinyl Cutter
+* Bantam CNC mill
+* Laguna bandsaw, belt sander, drum sander, jointer
+* Powermatic drill press
+* Jet bandsaw, edge sander
+* Generic panel saw
+* Generic rotary grinding/sanding tool
+
+### Relay Switch
+
+#### Haas CNC Machines
+
+All Haas CNC machines produced after 2014 ship with an NGC (Next Generation Controller). This controller has a dedicated auxiliary E-stop plug, intended for connecting a robot or other automation system. This connection can instead be connected to a **Relay Switch**. 
+
+Power for the system can come from the spare 110V outlets found inside most Haas electrical cabinets. 
+
+![Image](./assets/acs%20haas%20wiring.webp)
+///caption
+Source: [HaasCNC.com](https://haascnc.com/service/troubleshooting-and-how-to/reference-documents/robot-integration-aid---ngc.html)
+///
+
+#### Fablight Laser Cutter
+
+The Fablight Laser Cutter has an spare interlock loop in an access panel on the left side of the machine, intended for use with a tube-extension add-on. A **Relay Switch** interrupting this connection is read as a door-open fault, and the machine will not move or fire the laser until a card is present.
+
+Power for the system can come from open USB ports inside the electrical cabinet. 
+
+#### ProtoTrak Mill
+
+KMX-controller ProtoTrak machines have an auxiliary E-stop plug in the back of the machine, labeled "EURO E-STOP". By default, it ships with a jumper head on it that connects pins 1-6, 2-4, 3-5, and 7-8-9. Interrupting the 2-4 connection with a **Relay Switch** puts the controller in an emergency lockout state, making the machine inoperable but without losing any of the parameters saved in the controller.
+
+On KMX machines with a power knee, RIT also installs an **AC Power Switch**, so that the knee's power is cut when a card is not present.
+
+### USB Hub Switch
+
+#### Epilog Laser Cutter
+
+Epilog lasers can take up to a minute to start up, so cutting their power is not ideal. Instead, at RIT access control restricts use of the computer used to send jobs to the laser, by interrupting their keyboard, mouse, and exposed USB ports with a **USB Hub Switch**. 
+
+This has the added benefit of running an automatic cleanup script when a user is done with the computer, ensuring all their work is closed and all accounts are logged out, so every user has a clean-slate experience.
+
+#### OMAX Waterjet
+
+OMAX waterjets are intended to be constantly connected to an operator computer. By interrupting the computer's keyboard and mouse with a **USB Hub Switch**, the user cannot activate the pump or start a cut. The benefit of this is that it does not interfere with any critical interfaces, such as the E-stop or feed hold buttons, meaning they are always readily available in the event of an emergency.
+
+#### Generic Lab Computers
+
+For lab computers with software or licenses that do not play well with individual user accounts, a **USB Hub Switch** controlling access to a computer can help keep a record of users, and reset the computer to a known state after each use, with the help of software like Deep Freeze.
+
+## Hardware API
+
+MakeACS hardware communicates with the MakeACS server via a standardized MQTT API. This API structure can be adopted by other systems, to allow MakeACS hardware to be used with your own system. See the [MakeACS Hardware Standards](https://makeacs.github.io/HW-Standards/) for more information.

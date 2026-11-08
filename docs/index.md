@@ -10,13 +10,21 @@ icon: lucide/rocket
 
 MakeACS is 100% open-source, modifying it and hacking it is encouraged! Hardware and firmware is licensed under the CERN-OHL-S 2.0 license, and software is licensed under AGPL-3.0. All source files, documentation, and resources can be found on the MakeACS GitHub, at https://github.com/MakeACS. 
 
-MakeACS is developed by the Rochester Institute of Technology's Student Hall for Exploration and Development, with contributions from the open-source community. 
+MakeACS is developed by the Rochester Institute of Technology's Student Hall for Exploration and Development, with contributions from the open-source community. Learn more about the Student Hall for Exploration and Development at www.rit.edu/shed. 
 
 ## MakeACS by the Numbers
 
 MakeACS currently handles all operations of 7 makerspaces at RIT, with work underway to incorporate MakeACS at other shops at RIT. At least two other universities are also in the process of integrating MakeACS into their shop operations.
 
 As of November 2026, over 200 pieces of MakeACS hardware have been deployed, amassing over 150,000 interactions with makers. The MakeACS server at RIT has administered over 62,000 trainings to the 8,700 registered makers. To date, more than 15,000 unauthorized equipment access attempts have been stopped with MakeACS.
+
+## MakeACS Architecture
+
+MakeACS can generally be divided into two parts; 
+
+**[Access Control Hardware](./2-hardware.md)** is what attaches to equipment to control user access and track utilization.
+
+**[MakeACS Website](./3-server.md)** is how users and staff interact with the MakeACS system, including the training systems and shop management tools. 
 
 ## Learn More
 

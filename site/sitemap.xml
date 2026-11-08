@@ -4,12 +4,12 @@
         <loc>https://www.example.com/</loc>
       </url>
       <url>
-        <loc>https://www.example.com/2%20hardware/</loc>
+        <loc>https://www.example.com/2-hardware/</loc>
       </url>
       <url>
-        <loc>https://www.example.com/3%20server/</loc>
+        <loc>https://www.example.com/3-server/</loc>
       </url>
       <url>
-        <loc>https://www.example.com/4%20access%20equipment/</loc>
+        <loc>https://www.example.com/4-access-equipment/</loc>
       </url>
 </urlset>
