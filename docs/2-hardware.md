@@ -14,13 +14,16 @@ Components are connected with a simple HD15 cable, no need for any specialized t
 
 When installing, each component is self-contained and in most cases does not require any specialized training or skills to integrate with the equipment. Any configuration that is needed can be done through a graphical user interface on any Windows computer.
 
-The MakeACS bus is standardized and easy to integrate into your own device, so you can easily make your own components to suit any need that the already-existing hardware does not. 
+![Image](./assets/ac+core.jpg)
+/// caption
+An AC Power Switch and a Core are the most common deployment.
+///
 
 ## The Core
 
 The Core is the heart of a MakeACS deployment. It is where the end-user interacts with the system, and is how the deployment communicates with the server. 
 
-All Cores are equipped with both a 2.4GHz Wi-Fi radio, and a 100Mbps Ethernet connection, to communicate with the server. There is no need for a separate network or anything; the Core can connect directly to your main Ethernet or WiFi network, and is fully encrypted. 
+All Cores are equipped with both a 2.4GHz Wi-Fi radio, and a 100Mbps Ethernet connection, to communicate with the server. There is no need for a separate network or anything; the Core can connect directly to your main Ethernet or WiFi network, and is fully encrypted. In the event of a network outage, the Core can rely on backup offline lists of previously-approved users for up to 30 days.
 
 User identification in MakeACS is designed to use already-issued ID cards, such as student IDs or membership cards. Supported cards include:
 
@@ -30,28 +33,30 @@ User identification in MakeACS is designed to use already-issued ID cards, such 
 * **RFID** (125KHz), FSK (HID and HID-compatible, up to 39 bytes), ASK (EM Microelectronic and compatible)
     * Can be configured to use unique card number or facility code + card number for user identification
 
-MakeACS supports two forms of session duration as well;
+Once a user has been identified and the server authorizes them to use the equipment, the session is kept alive in one of two configurable ways;
 
-* Tap: Works like a traditional card reader, tapping the ID card will start a session of a pre-set length. Tapping again refreshes the countdown.
-* Insert: Requires the card to remain inserted into the MakeACS Core to continue a session duration indefinitely, ensuring constant operator presence.
-
-The Core has a basic RGB LED and buzzer for communicating state, but also has an open-ended connection interface to allow for a display module.
-
-In the event of a network outage, the Core can continue to operate based on an offline list of previously-approved users, for up to 30 days.
-
-The Core can also be used as a sign-in reader to a space. This is useful for collecting statistics of the number of people who enter the space and when, and can also be used to enforce users checking in at the front desk before using equipment for the day.
-
-Firmware updates for the Core are automatically installed over-the-air on boot, so no need to worry about getting out of date.
+* **Tap**: Works like a traditional access control card reader, tapping the ID card will start a session of a pre-set length. Tapping again refreshes the countdown.
+* **Insert**: Requires the card to remain inserted into the MakeACS Core to continue a session duration indefinitely, ensuring constant operator presence.
 
 ![Image](./assets/1784678624715.jpg)
 /// caption
-A MakeACS Core installed on a cold saw.
+Removing your ID would immediately shut off this cold saw.
 ///
+
+The Core has a basic RGB LED and buzzer for communicating state, but also has an open-ended connection interface to allow for a display module. This is ideal for more complex systems, or for readers using the **Tap** mode, since it can show remaining time.
 
 ![Image](./assets/paint%20booth%20core.jpg)
 ///caption
 Tap you ID to activate the paint booth. The display will show you how long you have remaining in your session. 
 ///
+
+The Core can also be used as a sign-in reader to a space. This is useful for collecting statistics of the number of people who enter the space and when, and can also be used to enforce users checking in at the front desk before using equipment for the day.
+
+![Image](./assets/sign%20in%20reader.jpg)
+///caption
+If you do not sign in for the day, equipment will not unlock for you!
+///
+
 
 ## The Switch
 
@@ -67,9 +72,11 @@ The AC Power Switch is rated for highly inductive loads, and can handle a sustai
 
 The switch will monitor for any faults such as over-temperature, or blown fuses, and can also be configured to not allow a machine to be activated if it is detected to be in the "on" state. 
 
-![Image](./assets/ac+core.jpg)
-/// caption
-An AC Power Switch and a Core are the most common deployment.
+To prevent bypassing or tampering, the AC Power Switch has an optional plug lock, to secure the equipment's plug in place.
+
+![Image](./assets/acs%20power%20switch.jpg)
+///caption
+The AC Power Switch, mounted to the base of a drill press.
 ///
 
 ### USB Hub Switch
@@ -107,6 +114,11 @@ To help users see equipment availability, this add-on allows the attachment of a
 ### Laser Fume Monitor
 
 This add-on integrates with the Epilog Laser fume extractor control interface, and will monitor for and report any faults related to the filters or the air assist supply line. If either is found to be malfunctioning, the equipment is locked out automatically.
+
+![Image](./assets/laser%20monitor.jpg)
+///caption
+The fume extractor failed to start, so the system is put into lockout.
+///
 
 ### Hobbs Timer
 

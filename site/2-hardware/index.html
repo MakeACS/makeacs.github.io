@@ -653,35 +653,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../4-access-equipment/" class="md-nav__link">
-        
-  
-  
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-list-check" viewBox="0 0 24 24"><path d="M16 5H3M16 12H3M11 19H3M15 18l2 2 4-4"/></svg>
-  
-  <span class="md-ellipsis">
-    
-  
-  4. Access Equipment
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../5-system-price/" class="md-nav__link">
+      <a href="../4-system-price/" class="md-nav__link">
         
   
   
@@ -690,7 +662,7 @@
   <span class="md-ellipsis">
     
   
-  5. System Price
+  4. System Price
 
     
   </span>
@@ -1067,10 +1039,15 @@
 <p>MakeACS hardware is a modular, shared-bus system; multiple individual components can be interconnected to tailor the hardware to the application at hand. By combining different card readers, switches, and accessories, thousands of possible setups can be achieved to perfectly tailor to the application at hand.</p>
 <p>Components are connected with a simple HD15 cable, no need for any specialized tooling or proprietary connectors. All components in a MakeACS deployment are also constantly monitored and inventoried, so that a malicious actor cannot swap components around to gain access to equipment they otherwise should not be able to.</p>
 <p>When installing, each component is self-contained and in most cases does not require any specialized training or skills to integrate with the equipment. Any configuration that is needed can be done through a graphical user interface on any Windows computer.</p>
-<p>The MakeACS bus is standardized and easy to integrate into your own device, so you can easily make your own components to suit any need that the already-existing hardware does not. </p>
+<figure>
+<p><a class="glightbox" data-type="image" href=".././assets/ac+core.jpg"><img alt="Image" src=".././assets/ac+core.jpg" /></a></p>
+<figcaption>
+<p>An AC Power Switch and a Core are the most common deployment.</p>
+</figcaption>
+</figure>
 <h2 id="the-core">The Core<a class="headerlink" href="#the-core" title="Permanent link">&para;</a></h2>
 <p>The Core is the heart of a MakeACS deployment. It is where the end-user interacts with the system, and is how the deployment communicates with the server. </p>
-<p>All Cores are equipped with both a 2.4GHz Wi-Fi radio, and a 100Mbps Ethernet connection, to communicate with the server. There is no need for a separate network or anything; the Core can connect directly to your main Ethernet or WiFi network, and is fully encrypted. </p>
+<p>All Cores are equipped with both a 2.4GHz Wi-Fi radio, and a 100Mbps Ethernet connection, to communicate with the server. There is no need for a separate network or anything; the Core can connect directly to your main Ethernet or WiFi network, and is fully encrypted. In the event of a network outage, the Core can rely on backup offline lists of previously-approved users for up to 30 days.</p>
 <p>User identification in MakeACS is designed to use already-issued ID cards, such as student IDs or membership cards. Supported cards include:</p>
 <ul>
 <li><strong>NFC</strong> (13.56MHz), ISO/IEC 14443A, MIFARE (Classic, Ultralight, Ultralight C, Plus, DESFire), NTAG<ul>
@@ -1083,25 +1060,29 @@
 </ul>
 </li>
 </ul>
-<p>MakeACS supports two forms of session duration as well;</p>
+<p>Once a user has been identified and the server authorizes them to use the equipment, the session is kept alive in one of two configurable ways;</p>
 <ul>
-<li>Tap: Works like a traditional card reader, tapping the ID card will start a session of a pre-set length. Tapping again refreshes the countdown.</li>
-<li>Insert: Requires the card to remain inserted into the MakeACS Core to continue a session duration indefinitely, ensuring constant operator presence.</li>
+<li><strong>Tap</strong>: Works like a traditional access control card reader, tapping the ID card will start a session of a pre-set length. Tapping again refreshes the countdown.</li>
+<li><strong>Insert</strong>: Requires the card to remain inserted into the MakeACS Core to continue a session duration indefinitely, ensuring constant operator presence.</li>
 </ul>
-<p>The Core has a basic RGB LED and buzzer for communicating state, but also has an open-ended connection interface to allow for a display module.</p>
-<p>In the event of a network outage, the Core can continue to operate based on an offline list of previously-approved users, for up to 30 days.</p>
-<p>The Core can also be used as a sign-in reader to a space. This is useful for collecting statistics of the number of people who enter the space and when, and can also be used to enforce users checking in at the front desk before using equipment for the day.</p>
-<p>Firmware updates for the Core are automatically installed over-the-air on boot, so no need to worry about getting out of date.</p>
 <figure>
 <p><a class="glightbox" data-type="image" href=".././assets/1784678624715.jpg"><img alt="Image" src=".././assets/1784678624715.jpg" /></a></p>
 <figcaption>
-<p>A MakeACS Core installed on a cold saw.</p>
+<p>Removing your ID would immediately shut off this cold saw.</p>
 </figcaption>
 </figure>
+<p>The Core has a basic RGB LED and buzzer for communicating state, but also has an open-ended connection interface to allow for a display module. This is ideal for more complex systems, or for readers using the <strong>Tap</strong> mode, since it can show remaining time.</p>
 <figure>
 <p><a class="glightbox" data-type="image" href=".././assets/paint%20booth%20core.jpg"><img alt="Image" src=".././assets/paint%20booth%20core.jpg" /></a></p>
 <figcaption>
 <p>Tap you ID to activate the paint booth. The display will show you how long you have remaining in your session. </p>
+</figcaption>
+</figure>
+<p>The Core can also be used as a sign-in reader to a space. This is useful for collecting statistics of the number of people who enter the space and when, and can also be used to enforce users checking in at the front desk before using equipment for the day.</p>
+<figure>
+<p><a class="glightbox" data-type="image" href=".././assets/sign%20in%20reader.jpg"><img alt="Image" src=".././assets/sign%20in%20reader.jpg" /></a></p>
+<figcaption>
+<p>If you do not sign in for the day, equipment will not unlock for you!</p>
 </figcaption>
 </figure>
 <h2 id="the-switch">The Switch<a class="headerlink" href="#the-switch" title="Permanent link">&para;</a></h2>
@@ -1111,10 +1092,11 @@
 <p>The AC Power Switch is by far the most popular MakeACS switch. It simply goes inline between the outlet on the wall and your equipment's power cable. There is no need for any invasive in-machine wiring or doing your own AC connections. </p>
 <p>The AC Power Switch is rated for highly inductive loads, and can handle a sustained 20A. This makes it ideal for anything from a sewing machine to a bandsaw.</p>
 <p>The switch will monitor for any faults such as over-temperature, or blown fuses, and can also be configured to not allow a machine to be activated if it is detected to be in the "on" state. </p>
+<p>To prevent bypassing or tampering, the AC Power Switch has an optional plug lock, to secure the equipment's plug in place.</p>
 <figure>
-<p><a class="glightbox" data-type="image" href=".././assets/ac+core.jpg"><img alt="Image" src=".././assets/ac+core.jpg" /></a></p>
+<p><a class="glightbox" data-type="image" href=".././assets/acs%20power%20switch.jpg"><img alt="Image" src=".././assets/acs%20power%20switch.jpg" /></a></p>
 <figcaption>
-<p>An AC Power Switch and a Core are the most common deployment.</p>
+<p>The AC Power Switch, mounted to the base of a drill press.</p>
 </figcaption>
 </figure>
 <h3 id="usb-hub-switch">USB Hub Switch<a class="headerlink" href="#usb-hub-switch" title="Permanent link">&para;</a></h3>
@@ -1143,6 +1125,12 @@
 <p>To help users see equipment availability, this add-on allows the attachment of a standard Andon light tower, which can show deployment state. </p>
 <h3 id="laser-fume-monitor">Laser Fume Monitor<a class="headerlink" href="#laser-fume-monitor" title="Permanent link">&para;</a></h3>
 <p>This add-on integrates with the Epilog Laser fume extractor control interface, and will monitor for and report any faults related to the filters or the air assist supply line. If either is found to be malfunctioning, the equipment is locked out automatically.</p>
+<figure>
+<p><a class="glightbox" data-type="image" href=".././assets/laser%20monitor.jpg"><img alt="Image" src=".././assets/laser%20monitor.jpg" /></a></p>
+<figcaption>
+<p>The fume extractor failed to start, so the system is put into lockout.</p>
+</figcaption>
+</figure>
 <h3 id="hobbs-timer">Hobbs Timer<a class="headerlink" href="#hobbs-timer" title="Permanent link">&para;</a></h3>
 <p>While MakeACS automatically tracks usage time based on the total time on, this add-on allows for a specific signal to be used for hours tracking. This is useful on something like a CNC, where maintenance tasks should be based on spindle run-time, versus machine on-time.</p>
 <h3 id="buddy-system-enforcer">Buddy System Enforcer<a class="headerlink" href="#buddy-system-enforcer" title="Permanent link">&para;</a></h3>
