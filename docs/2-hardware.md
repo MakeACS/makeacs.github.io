@@ -8,9 +8,9 @@ icon: lucide/circuit-board
 
 The MakeACS hardware is what enables the system to control machine-level access, track usage of the shops, and automatically generate maintenance tasks based on usage. 
 
-MakeACS hardware is a modular, shared-bus system; multiple individual components can be interconnected to tailor the hardware to the application at hand. By combining different card readers, switches, and accessories, thousands of possible setups can be achieved to perfectly tailor to the application at hand.
+MakeACS hardware is a modular, shared-bus system; multiple individual components can be interconnected to tailor the hardware to the application at hand. By combining different card readers, switches, and accessories, thousands of possible setups can be achieved.
 
-Components are connected with a simple HD15 cable, no need for any specialized tooling or proprietary connectors. All components in a MakeACS deployment are also constantly monitored and inventoried, so that a malicious actor cannot swap components around to gain access to equipment they otherwise should not be able to.
+Components are connected with a simple HD15 cable, no need for any specialized tooling or proprietary cables. All components in a MakeACS deployment are also constantly monitored and inventoried, so that a malicious actor cannot swap components around to gain access to equipment they otherwise should not be able to.
 
 When installing, each component is self-contained and in most cases does not require any specialized training or skills to integrate with the equipment. Any configuration that is needed can be done through a graphical user interface on any Windows computer.
 
@@ -23,9 +23,9 @@ An AC Power Switch and a Core are the most common deployment.
 
 The Core is the heart of a MakeACS deployment. It is where the end-user interacts with the system, and is how the deployment communicates with the server. 
 
-All Cores are equipped with both a 2.4GHz Wi-Fi radio, and a 100Mbps Ethernet connection, to communicate with the server. There is no need for a separate network or anything; the Core can connect directly to your main Ethernet or WiFi network, and is fully encrypted. In the event of a network outage, the Core can rely on backup offline lists of previously-approved users for up to 30 days.
+All Cores are equipped with both a 2.4GHz Wi-Fi radio and a 100Mbps Ethernet connection to communicate with the server. All traffic to and from the Core is 100% encrypted, so it can be put onto your facility's main network without security concerns. In the event of a network outage, the Core can operate off of internal offline lists of approved users for up to a month.
 
-User identification in MakeACS is designed to use already-issued ID cards, such as student IDs or membership cards. Supported cards include:
+User identification in MakeACS is designed around repurposing already-issued ID cards, such as student IDs or membership cards. This means fewer things for your users to have to remember when they come in to make. Supported cards include:
 
 * **NFC** (13.56MHz), ISO/IEC 14443A, MIFARE (Classic, Ultralight, Ultralight C, Plus, DESFire), NTAG
     * Can identify by ISO UID or by decrypting secure application data (such as a student ID number)
@@ -60,17 +60,17 @@ If you do not sign in for the day, equipment will not unlock for you!
 
 ## The Switch
 
-The Switch is the part of the access control hardware that actually controls access. There are a number of switches developed for MakeACS, depending on the piece of equipment in use. Multiple switches can also be used together, to form more complex access control setups all from a single card reader.
+The Switch is the part of the access control hardware that actually controls access. There are a number of switches developed for MakeACS, with different strategies for integrating with a wide variety of equipment. Multiple switches can also be used together, to form more complex access control setups all from a single card reader.
 
-In most cases, the switch is also where the MakeACS deployment harvests power from, so there is usually no need for an additional power cable or connection. This allows the deployment to be mounted wherever is best for accessability and ergonomics, with no need to worry about additional cables.
+In most cases, the switch is also where the MakeACS deployment harvests power from, so there is usually no need for an additional power cable or connection. This allows the deployment to be mounted wherever is best for accessability and ergonomics, with no need to worry about proximity to an outlet.
 
 ### AC Power Switch
 
 The AC Power Switch is by far the most popular MakeACS switch. It simply goes inline between the outlet on the wall and your equipment's power cable. There is no need for any invasive in-machine wiring or doing your own AC connections. 
 
-The AC Power Switch is rated for highly inductive loads, and can handle a sustained 20A. This makes it ideal for anything from a sewing machine to a bandsaw.
+The AC Power Switch is rated for highly inductive loads, and can handle a sustained 20 amps of current. This makes it suitable for anything from a sewing machine to a bandsaw.
 
-The switch will monitor for any faults such as over-temperature, or blown fuses, and can also be configured to not allow a machine to be activated if it is detected to be in the "on" state. 
+The switch will monitor for any faults such as over-temperature or blown fuses, and can automatically restrict access and notify staff. The AC Power Switch can also be configured to not allow a machine to be activated if it is detected to be in the "on" state, to prevent unexpected startups. Conversely, the AC Power Switch can be configured to give a warning if a session ends while equipment is detected to still be in use, so the user has a chance to restart the session and prevent issues.  
 
 To prevent bypassing or tampering, the AC Power Switch has an optional plug lock, to secure the equipment's plug in place.
 
@@ -91,11 +91,11 @@ For applications that require more direct integration with equipment, the Relay 
 
 There are 3 variants of the Relay Switch in MakeACS:
 
-1. The Signal Relay Switch has special gold-plated contacts, allowing it to work with small digital signals, like those from a microcontroller. It has 2 sets of NC and NO contacts, so you can switch multiple things in parallel.
+1. The Signal Relay Switch has special gold-plated contacts, allowing it to work with small digital signals, like those from a microcontroller. It has 2 sets of NC and NO contacts, so you can switch multiple signals in parallel. Each contact pair can handle up to 0.5A at 125V. 
 
-2. The DIN Relay Switch is rated for 250V at 5A, for integration with larger electrical cabinets. It is usually used to drive a larger contactor.
+2. The DIN Relay Switch is rated for 250V at 5A, for integration with larger electrical cabinets. It is usually used to drive a larger contactor for high-current or high-voltage loads, such as a welding station or large woodworking equipment.
 
-3. The DIN Controller is similar to the DIN Relay Switch, but with 5 independent control channels. This allows you more control over how a system is controlled. For example at RIT, this switch is used on the paint booth: the lights, fan, and heater are on 3 separate channels, so anyone can turn on the fan and lights, but only those who are authorized can turn on the burner. 
+3. The DIN Controller is similar to the DIN Relay Switch, but with 5 independent channels. This allows you more control over how a system is controlled. For example at RIT, this switch is used on the paint booth: the lights, fan, and heater are on 3 separate channels, so anyone can turn on the fan and lights, but only those who are authorized can turn on the burner. 
 
 ## Other Components
 
@@ -126,9 +126,9 @@ While MakeACS automatically tracks usage time based on the total time on, this a
 
 ### Buddy System Enforcer
 
-This add-on lets two Cores control one deployment, in one of three modes. This allows hardware-enforcement of the buddy policy on high-risk equipment, or more complex user authorization setups.
+This add-on lets two Cores control one deployment, in one of three modes. This enables hardware-enforcement of the buddy policy on high-risk equipment, or more complex user authorization setups.
 
-* AND Mode: Both Cores need an approved user present to activate the equipment. This ensures 2 trained users are present at all times.
+* AND Mode: Both Cores need an approved user present to activate the equipment. This ensures 2 trained users are present at all times. The training requirements for each of the Cores can be different as well, to ensure a specially-trained staff member is present, for instance.
 
 * OR Mode: Either Core needs an approved user to activate the equipment. This allows trained users to hand off equipment without disrupting its operation.
 
@@ -136,7 +136,7 @@ This add-on lets two Cores control one deployment, in one of three modes. This a
 
 ### Blast Gate Controller
 
-This add-on enables MakeACS to open blast gates based on what equipment is in use. This ensures maximum suction to the equipment in use, and prevents excessive wear on the vacuum system when nothing is un use. It is designed for use with iVac automated blast gates, but can work with any generic 12v blast gate system.
+This add-on enables MakeACS to open blast gates based on what equipment is in use. This ensures maximum suction to where it is needed, and prevents excessive wear on the vacuum system when nothing is in use. It is designed for use with iVac automated blast gates, but can work with any generic 12v blast gate system.
 
 ## Deployment Examples
 
@@ -144,7 +144,7 @@ Below are some examples of how MakeACS is deployed at RIT.
 
 ### AC Power Switch
 
-The AC Power Switch is by far the most common switch. RIT uses it on the following machines;
+The AC Power Switch is by far the most common switch. RIT uses it on the following machines, to name a few;
 
 * Bernina 475, 590, E16, L460, Q20
 * Weller soldering iron

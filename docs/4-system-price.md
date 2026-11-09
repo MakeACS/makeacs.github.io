@@ -42,7 +42,7 @@ The AC Power Switch also needs a cable to connect to the wall power. Any generic
 
 ### Enclosures
 
-All MakeACS hardware enclosures are optimized for 3D printing, and can be printed on any printer you already own to save money! Alternatively there are no strict design specifications, so getting the manufactured externally would be inexpensive. 
+All MakeACS hardware enclosures are optimized for 3D printing, and can be printed on any printer you already own to save money! Alternatively, the components are designed with few critical tolerances, so it is cheap and easy to have them manufactured by a 3rd party.
 
 For the AC Power Switch, it is suggested to use a UL94-V0 rated filament, to add an extra layer of thermal protection surrounding the electronics.
 
@@ -68,7 +68,7 @@ Adding up the above, the total cost to deploy MakeACS hardware on 5 machines is 
 
 The best part? It gets cheaper the more you buy, with bulk discounts especially present on the electronics. If we opted for 30 sets of hardware instead, it drops the price to under **$130 per machine**!
 
-Adding additional features is also cheap and easy. For instance, adding a display to the Core is only $30 per unit more. Such upgrades can also come down the road thanks to the modular nature of the MakeACS hardware, so there's no need to make the decision right away.
+Adding additional features is also cheap and easy. For instance, adding a display to the Core is only $30 per unit. Such upgrades can also come down the road thanks to the modular nature of the MakeACS hardware, so there's no need to make the decision right away.
 
 ## Server Cost
 
@@ -76,16 +76,16 @@ What good is the hardware being cheap if it costs a ton to keep the server runni
 
 In most cases, hosting through a vendor like Heroku is the best option. Below is the configuration used by RIT, supporting over 8000 users across 7 makerspaces;
 
-* Dyno (Heroku Cedar Basic): $7 per month: THe "computer" part of the server, that handles actually running the website.
+* Dyno (Heroku Cedar Basic): $7 per month: The "computer" part of the server, that handles actually running the website.
 * Datastore (Heroku Postgresql Essential 2), $20 per month: Handles database storage of all information. This plan allows full data logging for **50 years** before database size constraints kick in.
-    * For smaller facilities, or if you can delete dater after ~5 years, you can get away with plans as little as $5 per month!
+    * For smaller facilities, or if you regularly delete data older than 3 years, you can get away with plans as little as $5 per month!
 
 Some additional costs come into play if your scale gets very large;
 
-* AWS Cloudfront CDN: Handles storing and serving images, documents, videos, etc. embedded into the website. Kept separate from Heroku to save costs. $0 per month unless you are exceeding around 10,000 website sessions per month. Beyond that, it costs around $1 per 100,000 monthly visits to the website.
+* AWS Cloudfront CDN: Handles storing and serving images, documents, videos, etc. embedded into the website. Kept separate from Heroku to save costs. $0 per month unless you are exceeding around 10,000 website sessions per month. Beyond that, it costs around $1 per 10,000 monthly visits to the website.
 * Mailgun: The part of Heroku that handles sending emails. Free for up to 400 emails per day, 401-50,000 emails per day costs up to $19 per month. Emails can be batched and sent out over time to keep under the 400 email limit, to avoid paying for the mail services.
 * Grafana Hosting: If you want to use Grafana for visualizations, but do not want to have to host it yourself, you can integrate it into Heroku via Stackero for up to $19 per month.
 
 So for most applications, the cost ends up **below $30 per month**!
 
-Keep in mind: MakeACS is open-source. If your facility or institution already have server hosting capacity, you may be able to run MakeACS off of that for $0 per month!  
+Keep in mind: MakeACS is open-source. If your facility or institution already has server hosting capacity, you may be able to run MakeACS off of that for $0 per month!  

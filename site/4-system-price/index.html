@@ -661,7 +661,7 @@
 </ul>
 <p><strong>Wiring Total: $204.38 (40.88 per machine)</strong></p>
 <h3 id="enclosures">Enclosures<a class="headerlink" href="#enclosures" title="Permanent link">&para;</a></h3>
-<p>All MakeACS hardware enclosures are optimized for 3D printing, and can be printed on any printer you already own to save money! Alternatively there are no strict design specifications, so getting the manufactured externally would be inexpensive. </p>
+<p>All MakeACS hardware enclosures are optimized for 3D printing, and can be printed on any printer you already own to save money! Alternatively, the components are designed with few critical tolerances, so it is cheap and easy to have them manufactured by a 3<sup>rd</sup> party.</p>
 <p>For the AC Power Switch, it is suggested to use a UL94-V0 rated filament, to add an extra layer of thermal protection surrounding the electronics.</p>
 <p>All 3D printed components for 5 AC Power Switches and 5 NFC Cores cost less than <strong>$30</strong> if you have your own 3D printer.</p>
 <h3 id="mechanical-hardware">Mechanical Hardware<a class="headerlink" href="#mechanical-hardware" title="Permanent link">&para;</a></h3>
@@ -677,25 +677,25 @@
 <h3 id="total">Total<a class="headerlink" href="#total" title="Permanent link">&para;</a></h3>
 <p>Adding up the above, the total cost to deploy MakeACS hardware on 5 machines is only <strong>$203 per machine</strong></p>
 <p>The best part? It gets cheaper the more you buy, with bulk discounts especially present on the electronics. If we opted for 30 sets of hardware instead, it drops the price to under <strong>$130 per machine</strong>!</p>
-<p>Adding additional features is also cheap and easy. For instance, adding a display to the Core is only $30 per unit more. Such upgrades can also come down the road thanks to the modular nature of the MakeACS hardware, so there's no need to make the decision right away.</p>
+<p>Adding additional features is also cheap and easy. For instance, adding a display to the Core is only $30 per unit. Such upgrades can also come down the road thanks to the modular nature of the MakeACS hardware, so there's no need to make the decision right away.</p>
 <h2 id="server-cost">Server Cost<a class="headerlink" href="#server-cost" title="Permanent link">&para;</a></h2>
 <p>What good is the hardware being cheap if it costs a ton to keep the server running? The MakeACS server is designed to be extremely resource-conscious, requiring very little to run. We wouldn't recommend it, but you can easily run it off of a Raspberry Pi tucked away in the corner of the shop!</p>
 <p>In most cases, hosting through a vendor like Heroku is the best option. Below is the configuration used by RIT, supporting over 8000 users across 7 makerspaces;</p>
 <ul>
-<li>Dyno (Heroku Cedar Basic): $7 per month: THe "computer" part of the server, that handles actually running the website.</li>
+<li>Dyno (Heroku Cedar Basic): $7 per month: The "computer" part of the server, that handles actually running the website.</li>
 <li>Datastore (Heroku Postgresql Essential 2), $20 per month: Handles database storage of all information. This plan allows full data logging for <strong>50 years</strong> before database size constraints kick in.<ul>
-<li>For smaller facilities, or if you can delete dater after ~5 years, you can get away with plans as little as $5 per month!</li>
+<li>For smaller facilities, or if you regularly delete data older than 3 years, you can get away with plans as little as $5 per month!</li>
 </ul>
 </li>
 </ul>
 <p>Some additional costs come into play if your scale gets very large;</p>
 <ul>
-<li>AWS Cloudfront CDN: Handles storing and serving images, documents, videos, etc. embedded into the website. Kept separate from Heroku to save costs. $0 per month unless you are exceeding around 10,000 website sessions per month. Beyond that, it costs around $1 per 100,000 monthly visits to the website.</li>
+<li>AWS Cloudfront CDN: Handles storing and serving images, documents, videos, etc. embedded into the website. Kept separate from Heroku to save costs. $0 per month unless you are exceeding around 10,000 website sessions per month. Beyond that, it costs around $1 per 10,000 monthly visits to the website.</li>
 <li>Mailgun: The part of Heroku that handles sending emails. Free for up to 400 emails per day, 401-50,000 emails per day costs up to $19 per month. Emails can be batched and sent out over time to keep under the 400 email limit, to avoid paying for the mail services.</li>
 <li>Grafana Hosting: If you want to use Grafana for visualizations, but do not want to have to host it yourself, you can integrate it into Heroku via Stackero for up to $19 per month.</li>
 </ul>
 <p>So for most applications, the cost ends up <strong>below $30 per month</strong>!</p>
-<p>Keep in mind: MakeACS is open-source. If your facility or institution already have server hosting capacity, you may be able to run MakeACS off of that for $0 per month!  </p>
+<p>Keep in mind: MakeACS is open-source. If your facility or institution already has server hosting capacity, you may be able to run MakeACS off of that for $0 per month!  </p>
 
 
 
