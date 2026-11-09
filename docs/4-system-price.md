@@ -2,7 +2,7 @@
 icon: lucide/circle-dollar-sign
 ---
 
-# 5. System Price
+# 4. System Price
 
 One of the main development goals of MakeACS was to create a system that did not cost much to implement nor maintain. Below is a breakdown of the costs of implementing MakeACS;
 

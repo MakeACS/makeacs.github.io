@@ -18,17 +18,15 @@ MakeACS currently handles all operations of 7 makerspaces at RIT, with work unde
 
 As of November 2026, over 200 pieces of MakeACS hardware have been deployed, amassing over 150,000 interactions with makers. The MakeACS server at RIT has administered over 62,000 trainings to the 8,700 registered makers. To date, more than 15,000 unauthorized equipment access attempts have been stopped with MakeACS.
 
-## MakeACS Architecture
+## Table of Contents
 
-MakeACS can generally be divided into two parts; 
+**[Hardware](./2-hardware.md)** : The access control and equipment monitoring components that can be installed on equipment in your facility.
 
-**[Access Control Hardware](./2-hardware.md)** is what attaches to equipment to control user access and track utilization.
+**[Server](./3-server.md)** : How users and your staff interact with MakeACS; take trainings, see equipment availability, and manage  operations.
 
-**[MakeACS Website](./3-server.md)** is how users and staff interact with the MakeACS system, including the training systems and shop management tools. 
+**[System Price](./4-system-price.md)** : How much would it cost to implement MakeACS? 
 
 ## Learn More
-
-You can learn more about MakeACS by clicking on any of the website sections to the left, or check out these links;
 
 [See MakeACS in use at the RIT makerspace website, make.rit.edu](https://make.rit.edu).
 
