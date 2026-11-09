@@ -10,7 +10,7 @@ The MakeACS hardware is what enables the system to control machine-level access,
 
 MakeACS hardware is a modular, shared-bus system; multiple individual components can be interconnected to tailor the hardware to the application at hand. By combining different card readers, switches, and accessories, thousands of possible setups can be achieved.
 
-Components are connected with a simple HD15 cable, no need for any specialized tooling or proprietary cables. All components in a MakeACS deployment are also constantly monitored and inventoried, so that a malicious actor cannot swap components around to gain access to equipment they otherwise should not be able to.
+Components are connected with a generic low-voltage cable, no need for any specialized tooling or proprietary components. All components in a MakeACS deployment are also constantly monitored and inventoried, so that a malicious actor cannot swap components around to gain access to equipment they otherwise should not be able to.
 
 When installing, each component is self-contained and in most cases does not require any specialized training or skills to integrate with the equipment. Any configuration that is needed can be done through a graphical user interface on any Windows computer.
 
