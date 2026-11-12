@@ -10,9 +10,7 @@ MakeACS's primary feature is the machine-level access control system. When paire
 
 MakeACS hardware is a module, shared-bus system; multiple individual components can be interconnected to tailor the hardware to the application at hand. By combining different card readers, switches, and accessories, thousands of possible setups can be achieved.
 
-Components are connected with a generic low-voltage cable, with no need for specialized tooling or proprietary components. All components in a MakeACS deployment are constantly monitored and inventoried, so a malicious actor cannot swap components to gain access to equipment they otherwise should not be able to.
-
-When installing, each component is self-contained. In most cases, no specialized training or skills are required to install MakeACS hardware. Any configuration that is needed can be done through a graphical user interface from any Windows computer.
+When installing, each component is self-contained, and only connected by a simple low-voltage cable. In most cases, there is no specialized training or skills required to install MakeACS hardware. Any configuration that is needed can be done through a graphical user interface from any Windows computer. 
 
 MakeACS hardware contains multiple automated safety and integrity checks, to detect and defeat attempts at tampering with, bypassing, or otherwise damaging the hardware.
 
