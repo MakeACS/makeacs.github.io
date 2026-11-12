@@ -1,18 +1,18 @@
 ---
-icon: lucide/circuit-board
+icon: lucide/lock-keyhole-open
 ---
 
-# 2. Hardware Features
+# 4. Access Control
 
-## Hardware Overview
+## Overview
 
-The MakeACS hardware is what enables the system to control machine-level access, track usage of the shops, and automatically generate maintenance tasks based on usage. 
+MakeACS's primary feature is the machine-level access control system. When paired with the MakeACS website, this enables locking equipment access behind [trainings](./3-training.md), tracking [usage statistics](./6-statistics-logging.md), automatically generating [maintenance tickets](./5-shop-management.md) based on usage, and displaying [real-time availability](./2-website.md#equipment-information) on the website.
 
-MakeACS hardware is a modular, shared-bus system; multiple individual components can be interconnected to tailor the hardware to the application at hand. By combining different card readers, switches, and accessories, thousands of possible setups can be achieved.
+MakeACS hardware is a module, shared-bus system; multiple individual components can be interconnected to tailor the hardware to the application at hand. By combining different card readers, switches, and accessories, thousands of possible setups can be achieved.
 
-Components are connected with a generic low-voltage cable, no need for any specialized tooling or proprietary components. All components in a MakeACS deployment are also constantly monitored and inventoried, so that a malicious actor cannot swap components around to gain access to equipment they otherwise should not be able to.
+When installing, each component is self-contained, and only connected by a simple low-voltage cable. In most cases, there is no specialized training or skills required to install MakeACS hardware. Any configuration that is needed can be done through a graphical user interface from any Windows computer. 
 
-When installing, each component is self-contained and in most cases does not require any specialized training or skills to integrate with the equipment. Any configuration that is needed can be done through a graphical user interface on any Windows computer.
+MakeACS hardware contains multiple automated safety and integrity checks, to detect and defeat attempts at tampering with, bypassing, or otherwise damaging the hardware.
 
 ![Image](./assets/ac+core.jpg)
 /// caption
@@ -21,9 +21,9 @@ An AC Power Switch and a Core are the most common deployment.
 
 ## The Core
 
-The Core is the heart of a MakeACS deployment. It is where the end-user interacts with the system, and is how the deployment communicates with the server. 
+The Core is the heart of a MakeACS deployment. It is where the end-user interacts with the system, and is how the deployment communicates with the website. 
 
-All Cores are equipped with both a 2.4GHz Wi-Fi radio and a 100Mbps Ethernet connection to communicate with the server. All traffic to and from the Core is 100% encrypted, so it can be put onto your facility's main network without security concerns. In the event of a network outage, the Core can operate off of internal offline lists of approved users for up to a month.
+All Cores are equipped with both a 2.4GHz Wi-Fi radio and a 100Mbps Ethernet connection to communicate with the website. All traffic to and from the Core is TLS 1.2 encrypted, so it can be put onto your facility's main network without security concerns. In the event of a network outage, the Core can operate off of internal offline lists of approved users for up to a month.
 
 User identification in MakeACS is designed around repurposing already-issued ID cards, such as student IDs or membership cards. This means fewer things for your users to have to remember when they come in to make. Supported cards include:
 
@@ -40,23 +40,22 @@ Once a user has been identified and the server authorizes them to use the equipm
 
 ![Image](./assets/1784678624715.jpg)
 /// caption
-Removing your ID would immediately shut off this cold saw.
+When I am done with the equipment, I simply remove my card. 
 ///
 
-The Core has a basic RGB LED and buzzer for communicating state, but also has an open-ended connection interface to allow for a display module. This is ideal for more complex systems, or for readers using the **Tap** mode, since it can show remaining time.
+The Core has a basic RGB LED and buzzer for communicating state, but also has an open-ended connection interface to allow for a display module. This can show a user why their access was denied, show announcements (such as notifying users the shop is closing soon), or for equipment in *tap* mode, how long remains on a session.
 
 ![Image](./assets/paint%20booth%20core.jpg)
 ///caption
 Tap you ID to activate the paint booth. The display will show you how long you have remaining in your session. 
 ///
 
-The Core can also be used as a sign-in reader to a space. This is useful for collecting statistics of the number of people who enter the space and when, and can also be used to enforce users checking in at the front desk before using equipment for the day.
+The Core can also be used as a sign-in reader to a space. This is useful for collecting [statistics](./6-statistics-logging.md) of the number of people who enter the space and when, and can also be used to enforce users checking in at the front desk before using equipment for the day.
 
 ![Image](./assets/sign%20in%20reader.jpg)
 ///caption
 If you do not sign in for the day, equipment will not unlock for you!
 ///
-
 
 ## The Switch
 
@@ -198,6 +197,6 @@ OMAX waterjets are intended to be constantly connected to an operator computer. 
 
 For lab computers with software or licenses that do not play well with individual user accounts, a **USB Hub Switch** controlling access to a computer can help keep a record of users, and reset the computer to a known state after each use, with the help of software like Deep Freeze.
 
-## Hardware API
+## DIY Hardware
 
-MakeACS hardware communicates with the MakeACS server via a standardized MQTT API. This API structure can be adopted by other systems, to allow MakeACS hardware to be used with your own system. See the [MakeACS Hardware Standards](https://makeacs.github.io/HW-Standards/) for more information.
+The MakeACS bus interface and MQTT API are standardized, and can be found in the [MakeACS Hardware Standards](https://makeacs.github.io/HW-Standards/). Compliance with these standards allows you to develop your own MakeACS hardware that is interoperable with all other MakeACS devices.
