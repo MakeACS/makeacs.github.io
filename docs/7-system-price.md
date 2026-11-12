@@ -2,12 +2,17 @@
 icon: lucide/circle-dollar-sign
 ---
 
-# 4. System Price
+# 7. System Price
 
 One of the main development goals of MakeACS was to create a system that did not cost much to implement nor maintain. Below is a breakdown of the costs of implementing MakeACS;
 
 !!! note
     All prices listed are for the price of materials and BOM items, and assumes you are doing any assembly/installation yourself.
+
+**TL;DR** / **BLUF**:
+
+* About **$150-200** per machine for access control hardware (one-time purchase).
+* Under **$20 per month** for the MakeACS website, less if you have a smaller shop.
 
 ## Hardware Cost
 

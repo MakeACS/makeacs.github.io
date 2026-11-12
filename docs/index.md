@@ -20,11 +20,13 @@ As of November 2026, over 200 pieces of MakeACS hardware have been deployed, ama
 
 ## Table of Contents
 
-**[Hardware](./2-hardware.md)** : The access control and equipment monitoring components that can be installed on equipment in your facility.
-
-**[Server](./3-server.md)** : How users and your staff interact with MakeACS; take trainings, see equipment availability, and manage  operations.
-
-**[System Price](./4-system-price.md)** : How much would it cost to implement MakeACS? 
+1. [Introduction](./index.md): You are here!
+2. [Website](./2-website.md): A centralized place to learn more about the shop and its resources.
+3. [Trainings](./3-training.md): Train users on how to properly use equipment.
+4. [Access Control](./4-access-control.md): Control and monitor who is using equipment.
+5. [Shop Management](./5-shop-management.md): Make it easier to do your job.
+6. [Statistics & Logging](./6-statistics-logging.md): Understand usage trends in your shop.
+7. [System Price](./7-system-price.md): How much does MakeACS cost? 
 
 ## Learn More
 
